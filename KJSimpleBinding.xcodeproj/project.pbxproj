@@ -137,9 +137,9 @@
 		4E118FF5151AA771000EB505 /* KJSimpleBinding */ = {
 			isa = PBXGroup;
 			children = (
-				4E118FF6151AA771000EB505 /* Supporting Files */,
 				4E11901A151AA7AE000EB505 /* KJBindingManager.h */,
 				4E11901B151AA7AE000EB505 /* KJBindingManager.m */,
+				4E118FF6151AA771000EB505 /* Supporting Files */,
 			);
 			path = KJSimpleBinding;
 			sourceTree = "<group>";
@@ -155,9 +155,9 @@
 		4E119009151AA771000EB505 /* KJSimpleBindingTests */ = {
 			isa = PBXGroup;
 			children = (
-				4E11900A151AA771000EB505 /* Supporting Files */,
 				4E11901E151AA7D0000EB505 /* KJBindingManagerTests.h */,
 				4E11901F151AA7D0000EB505 /* KJBindingManagerTests.m */,
+				4E11900A151AA771000EB505 /* Supporting Files */,
 			);
 			path = KJSimpleBindingTests;
 			sourceTree = "<group>";
@@ -176,12 +176,12 @@
 			children = (
 				4E119034151ABC98000EB505 /* AppDelegate.h */,
 				4E119035151ABC98000EB505 /* AppDelegate.m */,
+				4E119041151AC061000EB505 /* Clock.h */,
+				4E119042151AC061000EB505 /* Clock.m */,
+				4E11902C151ABC98000EB505 /* Supporting Files */,
 				4E119037151ABC98000EB505 /* ViewController.h */,
 				4E119038151ABC98000EB505 /* ViewController.m */,
 				4E11903A151ABC98000EB505 /* ViewController.xib */,
-				4E11902C151ABC98000EB505 /* Supporting Files */,
-				4E119041151AC061000EB505 /* Clock.h */,
-				4E119042151AC061000EB505 /* Clock.m */,
 			);
 			path = KJSimpleBindingDemo;
 			sourceTree = "<group>";

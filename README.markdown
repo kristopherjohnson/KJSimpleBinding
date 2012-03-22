@@ -43,7 +43,9 @@ The binding manager must be _enabled_ before it will start performing the observ
         [super viewWillDisappear:animated];
     }
 
-See the [KJSimpleBindingDemo](http://github.com/kristopherjohnson/KJSimpleBinding/blob/master/KJSimpleBinding/KJBindingManager.m) sample code for a complete example.
+Call the `-removeAllBindings` method to remove the bindings.  It is good style to call this before releasing the binding manager, but it will automatically be done if the binding manager is deallocated while it has active bindings.
+
+See the [KJSimpleBindingDemo](http://github.com/kristopherjohnson/KJSimpleBinding/blob/master/KJSimpleBindingDemo/ViewController.m) sample code for a complete example.
 
 
 ## Future Directions
