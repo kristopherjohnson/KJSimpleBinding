@@ -2,7 +2,7 @@
 
 `KJSimpleBinding` is a library that makes it easy to use [key-value coding](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC) and [key-value observing](https://developer.apple.com/library/mac/#documentation/cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html) (KVO) for simple data-binding scenarios in iOS applications.
 
-The library is inspired by Mac OS X's [Cocoa Bindings](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaBindings/CocoaBindings.html) mechanism, but only implements a small subset of its functionality. The data bindings provided by `KJSimpleBinding` are one-way only: that is, the library handles updating user-interface elements automatically when a model object's property changes, but changes to the UI element will not result in an automatic change to the model object.  The `KJSimpleBinding` library currently does not support value transformers or formatters.
+The library is inspired by Mac OS X's [Cocoa bindings](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaBindings/CocoaBindings.html) mechanisms, but only implements a small subset of that functionality. The data bindings provided by `KJSimpleBinding` are one-way only: that is, the library handles updating user-interface elements automatically when a model object's property changes, but changes to the UI element will not result in an automatic change to the model object.  The `KJSimpleBinding` library currently does not support value transformers or formatters.
 
 
 ## Contents
@@ -16,9 +16,9 @@ The following targets are provided in an Xcode workspace:
 
 ## Using KJBindingManager
 
-Create a `KJBindingManager` instance like this:
+Typically you will make a binding manager an instance variable or property of a `UIViewController` subclass.  Create a `KJBindingManager` instance like this:
 
-    bindingManager = [[KJBindingManager alloc] init];
+    _bindingManager = [[KJBindingManager alloc] init];
     
 Set up bindings by calling the `-bindObserver:keyPath:toSubject:keyPath:` method.
 
@@ -53,9 +53,11 @@ See the [KJSimpleBindingDemo](http://github.com/kristopherjohnson/KJSimpleBindin
 The following features are planned:
 
 - Validation
-- Value transformers and/or data formatters
+- Value transformers
+- Data formatters
+- Subclasses of `UIViewController` and `UITableViewController` with built-in binding functionality (perhaps based upon the functionality of AppKit's `NSObjectController` and `NSArrayController`).
 
-Note that a full Cocoa Bindings implementation is not feasible on iOS, due to limitations of UIKit components.
+Note that a full Cocoa bindings implementation is not feasible on iOS, due to limitations of UIKit components.  The goal of the `KJSimpleBinding` project is to create a good data-binding mechanism for iOS, so there will be no attempt to be compatible with Cocoa bindings simply for the sake of similarity or familiarity.
 
 
 ## License
