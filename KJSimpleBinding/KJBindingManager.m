@@ -27,6 +27,7 @@
 
 typedef id (^KJTransformBlock)(id value);
 
+
 // The KJBinding class is used internally by KJBindingManager.
 // It should be considered a private implementation detail.
 
@@ -96,7 +97,7 @@ typedef id (^KJTransformBlock)(id value);
 
 - (void)dealloc {
     if (_isEnabled) {
-        // disconnect all the observers
+        // Disconnect all the observers before we release the bindings
         [self disable];
     }
     [_bindings release];
@@ -108,18 +109,11 @@ typedef id (^KJTransformBlock)(id value);
            toSubject:(NSObject *)subject
              keyPath:(NSString *)subjectKeyPath
 {
-    KJBinding *binding = [[KJBinding alloc] init];
-    binding.observer = observer;
-    binding.observerKeyPath = observerKeyPath;
-    binding.subject = subject;
-    binding.subjectKeyPath = subjectKeyPath;
-    [_bindings addObject:binding];
-    
-    if (_isEnabled) {
-        [binding activate];
-    }
-    
-    [binding release];
+    [self bindObserver:observer
+               keyPath:observerKeyPath
+             toSubject:subject
+               keyPath:subjectKeyPath
+    withValueTransform:nil];
 }
 
 - (void)bindObserver:(NSObject *)observer
@@ -129,11 +123,13 @@ typedef id (^KJTransformBlock)(id value);
   withValueTransform:(id (^)(id value))transformBlock
 {
     KJBinding *binding = [[KJBinding alloc] init];
+    
     binding.observer = observer;
     binding.observerKeyPath = observerKeyPath;
     binding.subject = subject;
     binding.subjectKeyPath = subjectKeyPath;
     binding.transformBlock = transformBlock;
+    
     [_bindings addObject:binding];
     
     if (_isEnabled) {
