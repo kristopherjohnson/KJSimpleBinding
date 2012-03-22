@@ -29,12 +29,14 @@
 @interface TestModel : NSObject
 @property (nonatomic, copy) NSString *stringValue;
 @property (nonatomic, copy) NSString *stringValue2;
+@property (nonatomic) NSInteger numericValue;
 @end
 
 @implementation TestModel
 
 @synthesize stringValue;
 @synthesize stringValue2;
+@synthesize numericValue;
 
 - (void)dealloc {
     [stringValue release];
@@ -241,6 +243,24 @@
     
     STAssertEqualObjects(@"Changed String 1", observer1.text, nil);
     STAssertEqualObjects(@"Changed String 2", observer2.text, nil);    
+}
+
+- (void)testValueTransform {
+    TestModel *model = [[[TestModel alloc] init] autorelease];
+    model.numericValue = 33;
+    
+    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    
+    [bindingManager bindObserver:observer keyPath:@"text"
+                       toSubject:model keyPath:@"numericValue"
+              withValueTransform:^(id value) { return [value stringValue]; }];
+    
+    [bindingManager enable];
+    
+    STAssertEqualObjects(@"33", observer.text, nil);
+    
+    model.numericValue = 22;
+    STAssertEqualObjects(@"22", observer.text, nil);
 }
 
 @end

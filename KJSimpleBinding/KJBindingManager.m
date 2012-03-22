@@ -24,12 +24,19 @@
 
 #import "KJBindingManager.h"
 
+
+typedef id (^KJTransformBlock)(id value);
+
+// The KJBinding class is used internally by KJBindingManager.
+// It should be considered a private implementation detail.
+
 @interface KJBinding : NSObject
 
 @property (nonatomic, assign) NSObject *observer;
 @property (nonatomic, copy) NSString *observerKeyPath;
 @property (nonatomic, assign) NSObject *subject;
 @property (nonatomic, copy) NSString *subjectKeyPath;
+@property (nonatomic, copy) KJTransformBlock transformBlock;
 
 - (void)activate;
 
@@ -43,6 +50,7 @@
 @synthesize observerKeyPath = _observerKeyPath;
 @synthesize subject = _subject;
 @synthesize subjectKeyPath = _subjectKeyPath;
+@synthesize transformBlock = _transformBlock;
 
 - (void)dealloc {
     [_observerKeyPath release];
@@ -67,6 +75,9 @@
                        context:(void *)context
 {
     id newValue = [change valueForKey:NSKeyValueChangeNewKey];
+    if (_transformBlock) {
+        newValue = _transformBlock(newValue);
+    }
     [_observer setValue:newValue forKeyPath:_observerKeyPath];
 }
 
@@ -109,6 +120,27 @@
     }
     
     [binding release];
+}
+
+- (void)bindObserver:(NSObject *)observer
+             keyPath:(NSString *)observerKeyPath
+           toSubject:(NSObject *)subject
+             keyPath:(NSString *)subjectKeyPath
+  withValueTransform:(id (^)(id value))transformBlock
+{
+    KJBinding *binding = [[KJBinding alloc] init];
+    binding.observer = observer;
+    binding.observerKeyPath = observerKeyPath;
+    binding.subject = subject;
+    binding.subjectKeyPath = subjectKeyPath;
+    binding.transformBlock = transformBlock;
+    [_bindings addObject:binding];
+    
+    if (_isEnabled) {
+        [binding activate];
+    }
+    
+    [binding release];    
 }
 
 - (void)enable {

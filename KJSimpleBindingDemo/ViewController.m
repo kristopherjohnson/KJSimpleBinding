@@ -29,6 +29,7 @@
 @synthesize hoursLabel;
 @synthesize minutesLabel;
 @synthesize secondsLabel;
+@synthesize intervalLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,6 +53,13 @@
     
     [_bindingManager bindObserver:secondsLabel keyPath:@"text"
                         toSubject:_clock keyPath:@"seconds"];    
+    
+    // timeIntervalSince1970 is a numeric (double) property, so we need
+    // to transform it to an NSString for display.
+    
+    [_bindingManager bindObserver:intervalLabel keyPath:@"text"
+                        toSubject:_clock keyPath:@"timeIntervalSince1970"
+               withValueTransform:^(id value) { return [value stringValue]; }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,7 +80,7 @@
     [self setHoursLabel:nil];
     [self setMinutesLabel:nil];
     [self setSecondsLabel:nil];
-
+    [self setIntervalLabel:nil];
     [super viewDidUnload];
 }
 
@@ -86,7 +94,7 @@
     [hoursLabel release];
     [minutesLabel release];
     [secondsLabel release];
-    
+    [intervalLabel release];
     [super dealloc];
 }
 

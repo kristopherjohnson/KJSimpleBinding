@@ -36,6 +36,8 @@
 @property (nonatomic, copy) NSString *minutes;
 @property (nonatomic, copy) NSString *seconds;
 
+@property (nonatomic) NSTimeInterval timeIntervalSince1970;
+
 - (void)start;
 
 - (void)stop;

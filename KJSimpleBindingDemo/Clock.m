@@ -29,6 +29,7 @@
 @synthesize hours = _hours;
 @synthesize minutes = _minutes;
 @synthesize seconds = _seconds;
+@synthesize timeIntervalSince1970 = _timeIntervalSince1970;
 
 - (id)init {
     self = [super init];
@@ -54,6 +55,7 @@
     NSDateComponents *dateComponents = [calendar components:components fromDate:now];
     
     // Update properties. (KVO observers will get notified of these changes.)
+    self.timeIntervalSince1970 = [now timeIntervalSince1970];
     self.hours = [NSString stringWithFormat:@"%02d", (int)[dateComponents hour]];
     self.minutes = [NSString stringWithFormat:@"%02d", (int)[dateComponents minute]];
     self.seconds = [NSString stringWithFormat:@"%02d", (int)[dateComponents second]];

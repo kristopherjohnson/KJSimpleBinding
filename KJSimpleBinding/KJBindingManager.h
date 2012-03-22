@@ -46,6 +46,22 @@
            toSubject:(NSObject *)subject
              keyPath:(NSString *)subjectKeyPath;
 
+// Bind an observer's value specified by key path to a subject object's value,
+// transformed using the specified block.
+//
+// Neither observer nor subject are retained; it is the responsibility of the
+// caller to ensure that the objects are not deallocated for the duration
+// of the binding.
+//
+// The observer must be KVC-compliant for the observerKeyPath.
+//
+// The subject must be KVO-compliant for the subjectKeyPath
+- (void)bindObserver:(NSObject *)observer
+             keyPath:(NSString *)observerKeyPath
+           toSubject:(NSObject *)subject
+             keyPath:(NSString *)subjectKeyPath
+  withValueTransform:(id(^)(id value))transformBlock;
+
 // Return YES if the binding manager is enabled; NO if not.
 // A binding manager is not enabled until its -enable method is called.
 - (BOOL)isEnabled;

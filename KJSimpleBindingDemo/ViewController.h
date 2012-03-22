@@ -37,4 +37,6 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *secondsLabel;
 
+@property (retain, nonatomic) IBOutlet UILabel *intervalLabel;
+
 @end
