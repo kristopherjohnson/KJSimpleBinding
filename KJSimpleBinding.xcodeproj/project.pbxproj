@@ -8,13 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4E118FF4151AA771000EB505 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E118FF3151AA771000EB505 /* Foundation.framework */; };
-		4E118FFA151AA771000EB505 /* KJSimpleBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E118FF9151AA771000EB505 /* KJSimpleBinding.m */; };
 		4E119002151AA771000EB505 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E119001151AA771000EB505 /* SenTestingKit.framework */; };
 		4E119004151AA771000EB505 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E119003151AA771000EB505 /* UIKit.framework */; };
 		4E119005151AA771000EB505 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E118FF3151AA771000EB505 /* Foundation.framework */; };
 		4E119008151AA771000EB505 /* libKJSimpleBinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E118FF0151AA771000EB505 /* libKJSimpleBinding.a */; };
 		4E11900E151AA771000EB505 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E11900C151AA771000EB505 /* InfoPlist.strings */; };
-		4E119011151AA771000EB505 /* KJSimpleBindingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E119010151AA771000EB505 /* KJSimpleBindingTests.m */; };
+		4E11901C151AA7AE000EB505 /* KJBindingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E11901A151AA7AE000EB505 /* KJBindingManager.h */; };
+		4E11901D151AA7AE000EB505 /* KJBindingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11901B151AA7AE000EB505 /* KJBindingManager.m */; };
+		4E119020151AA7D0000EB505 /* KJBindingManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11901F151AA7D0000EB505 /* KJBindingManagerTests.m */; };
+		4E119027151ABC98000EB505 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E119003151AA771000EB505 /* UIKit.framework */; };
+		4E119028151ABC98000EB505 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E118FF3151AA771000EB505 /* Foundation.framework */; };
+		4E11902A151ABC98000EB505 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E119029151ABC98000EB505 /* CoreGraphics.framework */; };
+		4E119030151ABC98000EB505 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E11902E151ABC98000EB505 /* InfoPlist.strings */; };
+		4E119032151ABC98000EB505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E119031151ABC98000EB505 /* main.m */; };
+		4E119036151ABC98000EB505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E119035151ABC98000EB505 /* AppDelegate.m */; };
+		4E119039151ABC98000EB505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E119038151ABC98000EB505 /* ViewController.m */; };
+		4E11903C151ABC98000EB505 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E11903A151ABC98000EB505 /* ViewController.xib */; };
+		4E119040151ABF06000EB505 /* libKJSimpleBinding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E118FF0151AA771000EB505 /* libKJSimpleBinding.a */; };
+		4E119043151AC062000EB505 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E119042151AC061000EB505 /* Clock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +41,29 @@
 /* Begin PBXFileReference section */
 		4E118FF0151AA771000EB505 /* libKJSimpleBinding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKJSimpleBinding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E118FF3151AA771000EB505 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4E118FF7151AA771000EB505 /* KJSimpleBinding-Prefix.pch */ = {isa = PBXFileReference; path = "KJSimpleBinding-Prefix.pch"; sourceTree = "<group>"; };
-		4E118FF8151AA771000EB505 /* KJSimpleBinding.h */ = {isa = PBXFileReference; path = KJSimpleBinding.h; sourceTree = "<group>"; };
-		4E118FF9151AA771000EB505 /* KJSimpleBinding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJSimpleBinding.m; sourceTree = "<group>"; };
+		4E118FF7151AA771000EB505 /* KJSimpleBinding-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KJSimpleBinding-Prefix.pch"; sourceTree = "<group>"; };
 		4E119000151AA771000EB505 /* KJSimpleBindingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KJSimpleBindingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E119001151AA771000EB505 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		4E119003151AA771000EB505 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		4E11900B151AA771000EB505 /* KJSimpleBindingTests-Info.plist */ = {isa = PBXFileReference; path = "KJSimpleBindingTests-Info.plist"; sourceTree = "<group>"; };
+		4E11900B151AA771000EB505 /* KJSimpleBindingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KJSimpleBindingTests-Info.plist"; sourceTree = "<group>"; };
 		4E11900D151AA771000EB505 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4E11900F151AA771000EB505 /* KJSimpleBindingTests.h */ = {isa = PBXFileReference; path = KJSimpleBindingTests.h; sourceTree = "<group>"; };
-		4E119010151AA771000EB505 /* KJSimpleBindingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KJSimpleBindingTests.m; sourceTree = "<group>"; };
+		4E11901A151AA7AE000EB505 /* KJBindingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJBindingManager.h; sourceTree = "<group>"; };
+		4E11901B151AA7AE000EB505 /* KJBindingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJBindingManager.m; sourceTree = "<group>"; };
+		4E11901E151AA7D0000EB505 /* KJBindingManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KJBindingManagerTests.h; sourceTree = "<group>"; };
+		4E11901F151AA7D0000EB505 /* KJBindingManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KJBindingManagerTests.m; sourceTree = "<group>"; };
+		4E119025151ABC98000EB505 /* KJSimpleBindingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KJSimpleBindingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E119029151ABC98000EB505 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E11902D151ABC98000EB505 /* KJSimpleBindingDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KJSimpleBindingDemo-Info.plist"; sourceTree = "<group>"; };
+		4E11902F151ABC98000EB505 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E119031151ABC98000EB505 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E119033151ABC98000EB505 /* KJSimpleBindingDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KJSimpleBindingDemo-Prefix.pch"; sourceTree = "<group>"; };
+		4E119034151ABC98000EB505 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E119035151ABC98000EB505 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E119037151ABC98000EB505 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4E119038151ABC98000EB505 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4E11903B151ABC98000EB505 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		4E119041151AC061000EB505 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
+		4E119042151AC061000EB505 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +86,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4E119022151ABC98000EB505 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E119040151ABF06000EB505 /* libKJSimpleBinding.a in Frameworks */,
+				4E119027151ABC98000EB505 /* UIKit.framework in Frameworks */,
+				4E119028151ABC98000EB505 /* Foundation.framework in Frameworks */,
+				4E11902A151ABC98000EB505 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +105,7 @@
 			children = (
 				4E118FF5151AA771000EB505 /* KJSimpleBinding */,
 				4E119009151AA771000EB505 /* KJSimpleBindingTests */,
+				4E11902B151ABC98000EB505 /* KJSimpleBindingDemo */,
 				4E118FF2151AA771000EB505 /* Frameworks */,
 				4E118FF1151AA771000EB505 /* Products */,
 			);
@@ -80,6 +116,7 @@
 			children = (
 				4E118FF0151AA771000EB505 /* libKJSimpleBinding.a */,
 				4E119000151AA771000EB505 /* KJSimpleBindingTests.octest */,
+				4E119025151ABC98000EB505 /* KJSimpleBindingDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +127,7 @@
 				4E118FF3151AA771000EB505 /* Foundation.framework */,
 				4E119001151AA771000EB505 /* SenTestingKit.framework */,
 				4E119003151AA771000EB505 /* UIKit.framework */,
+				4E119029151ABC98000EB505 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,9 +135,9 @@
 		4E118FF5151AA771000EB505 /* KJSimpleBinding */ = {
 			isa = PBXGroup;
 			children = (
-				4E118FF8151AA771000EB505 /* KJSimpleBinding.h */,
-				4E118FF9151AA771000EB505 /* KJSimpleBinding.m */,
 				4E118FF6151AA771000EB505 /* Supporting Files */,
+				4E11901A151AA7AE000EB505 /* KJBindingManager.h */,
+				4E11901B151AA7AE000EB505 /* KJBindingManager.m */,
 			);
 			path = KJSimpleBinding;
 			sourceTree = "<group>";
@@ -115,9 +153,9 @@
 		4E119009151AA771000EB505 /* KJSimpleBindingTests */ = {
 			isa = PBXGroup;
 			children = (
-				4E11900F151AA771000EB505 /* KJSimpleBindingTests.h */,
-				4E119010151AA771000EB505 /* KJSimpleBindingTests.m */,
 				4E11900A151AA771000EB505 /* Supporting Files */,
+				4E11901E151AA7D0000EB505 /* KJBindingManagerTests.h */,
+				4E11901F151AA7D0000EB505 /* KJBindingManagerTests.m */,
 			);
 			path = KJSimpleBindingTests;
 			sourceTree = "<group>";
@@ -131,6 +169,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4E11902B151ABC98000EB505 /* KJSimpleBindingDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4E119034151ABC98000EB505 /* AppDelegate.h */,
+				4E119035151ABC98000EB505 /* AppDelegate.m */,
+				4E119037151ABC98000EB505 /* ViewController.h */,
+				4E119038151ABC98000EB505 /* ViewController.m */,
+				4E11903A151ABC98000EB505 /* ViewController.xib */,
+				4E11902C151ABC98000EB505 /* Supporting Files */,
+				4E119041151AC061000EB505 /* Clock.h */,
+				4E119042151AC061000EB505 /* Clock.m */,
+			);
+			path = KJSimpleBindingDemo;
+			sourceTree = "<group>";
+		};
+		4E11902C151ABC98000EB505 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E11902D151ABC98000EB505 /* KJSimpleBindingDemo-Info.plist */,
+				4E11902E151ABC98000EB505 /* InfoPlist.strings */,
+				4E119031151ABC98000EB505 /* main.m */,
+				4E119033151ABC98000EB505 /* KJSimpleBindingDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -138,6 +202,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E11901C151AA7AE000EB505 /* KJBindingManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +245,23 @@
 			productReference = 4E119000151AA771000EB505 /* KJSimpleBindingTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		4E119024151ABC98000EB505 /* KJSimpleBindingDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E11903D151ABC98000EB505 /* Build configuration list for PBXNativeTarget "KJSimpleBindingDemo" */;
+			buildPhases = (
+				4E119021151ABC98000EB505 /* Sources */,
+				4E119022151ABC98000EB505 /* Frameworks */,
+				4E119023151ABC98000EB505 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KJSimpleBindingDemo;
+			productName = KJSimpleBindingDemo;
+			productReference = 4E119025151ABC98000EB505 /* KJSimpleBindingDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,6 +285,7 @@
 			targets = (
 				4E118FEF151AA771000EB505 /* KJSimpleBinding */,
 				4E118FFF151AA771000EB505 /* KJSimpleBindingTests */,
+				4E119024151ABC98000EB505 /* KJSimpleBindingDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -213,6 +296,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E11900E151AA771000EB505 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E119023151ABC98000EB505 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E119030151ABC98000EB505 /* InfoPlist.strings in Resources */,
+				4E11903C151ABC98000EB505 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E118FFA151AA771000EB505 /* KJSimpleBinding.m in Sources */,
+				4E11901D151AA7AE000EB505 /* KJBindingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +339,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E119011151AA771000EB505 /* KJSimpleBindingTests.m in Sources */,
+				4E119020151AA7D0000EB505 /* KJBindingManagerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E119021151ABC98000EB505 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E119032151ABC98000EB505 /* main.m in Sources */,
+				4E119036151ABC98000EB505 /* AppDelegate.m in Sources */,
+				4E119039151ABC98000EB505 /* ViewController.m in Sources */,
+				4E119043151AC062000EB505 /* Clock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +371,22 @@
 				4E11900D151AA771000EB505 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E11902E151ABC98000EB505 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E11902F151ABC98000EB505 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E11903A151ABC98000EB505 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E11903B151ABC98000EB505 /* en */,
+			);
+			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -291,7 +410,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -307,7 +426,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -367,6 +486,39 @@
 			};
 			name = Release;
 		};
+		4E11903E151ABC98000EB505 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KJSimpleBindingDemo/KJSimpleBindingDemo-Prefix.pch";
+				INFOPLIST_FILE = "KJSimpleBindingDemo/KJSimpleBindingDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4E11903F151ABC98000EB505 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KJSimpleBindingDemo/KJSimpleBindingDemo-Prefix.pch";
+				INFOPLIST_FILE = "KJSimpleBindingDemo/KJSimpleBindingDemo-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -392,6 +544,14 @@
 			buildConfigurations = (
 				4E119018151AA771000EB505 /* Debug */,
 				4E119019151AA771000EB505 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4E11903D151ABC98000EB505 /* Build configuration list for PBXNativeTarget "KJSimpleBindingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E11903E151ABC98000EB505 /* Debug */,
+				4E11903F151ABC98000EB505 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
