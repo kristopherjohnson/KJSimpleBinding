@@ -64,6 +64,7 @@
 		4E11903B151ABC98000EB505 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		4E119041151AC061000EB505 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		4E119042151AC061000EB505 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
+		4E1E196F151B23D5001B88BD /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 		4E118FE5151AA771000EB505 = {
 			isa = PBXGroup;
 			children = (
+				4E1E196F151B23D5001B88BD /* README.markdown */,
 				4E118FF5151AA771000EB505 /* KJSimpleBinding */,
 				4E119009151AA771000EB505 /* KJSimpleBindingTests */,
 				4E11902B151ABC98000EB505 /* KJSimpleBindingDemo */,
@@ -538,6 +540,7 @@
 				4E119016151AA771000EB505 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E119017151AA771000EB505 /* Build configuration list for PBXNativeTarget "KJSimpleBindingTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +549,7 @@
 				4E119019151AA771000EB505 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E11903D151ABC98000EB505 /* Build configuration list for PBXNativeTarget "KJSimpleBindingDemo" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +558,7 @@
 				4E11903F151ABC98000EB505 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
