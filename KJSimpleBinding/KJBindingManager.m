@@ -56,6 +56,7 @@ typedef id (^KJTransformBlock)(id value);
 - (void)dealloc {
     [_observerKeyPath release];
     [_subjectKeyPath release];
+    [_transformBlock release];
     [super dealloc];
 }
 
