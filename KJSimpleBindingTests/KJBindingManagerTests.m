@@ -30,6 +30,7 @@
 @property (nonatomic, copy) NSString *stringValue;
 @property (nonatomic, copy) NSString *stringValue2;
 @property (nonatomic) NSInteger numericValue;
+@property (nonatomic, retain) TestModel *submodel;
 @end
 
 @implementation TestModel
@@ -37,10 +38,12 @@
 @synthesize stringValue;
 @synthesize stringValue2;
 @synthesize numericValue;
+@synthesize submodel;
 
 - (void)dealloc {
     [stringValue release];
     [stringValue2 release];
+    [submodel release];
     [super dealloc];
 }
 
@@ -261,6 +264,24 @@
     
     model.numericValue = 22;
     STAssertEqualObjects(@"22", observer.text, nil);
+}
+
+- (void)testSubjectKeyPath {
+    TestModel *topModel = [[[TestModel alloc] init] autorelease];
+    TestModel *subModel = [[[TestModel alloc] init] autorelease];
+    
+    topModel.submodel = subModel;
+    
+    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    
+    // Bind to topModel, but use a key path to actually bind to its submodel's stringValue
+    [bindingManager bindObserver:observer keyPath:@"text"
+                       toSubject:topModel keyPath:@"submodel.stringValue"];
+    [bindingManager enable];
+    
+    subModel.stringValue = @"Submodel value";
+    
+    STAssertEqualObjects(@"Submodel value", observer.text, nil);
 }
 
 @end
