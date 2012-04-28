@@ -74,7 +74,6 @@
 
 - (void)viewDidUnload {
     [_bindingManager removeAllBindings];
-    [_bindingManager release];
     _bindingManager = nil;
     
     [self setHoursLabel:nil];
@@ -86,16 +85,9 @@
 
 - (void)dealloc {
     [_clock stop];
-    [_clock release];
     
     [_bindingManager removeAllBindings];
-    [_bindingManager release];
     
-    [hoursLabel release];
-    [minutesLabel release];
-    [secondsLabel release];
-    [intervalLabel release];
-    [super dealloc];
 }
 
 @end

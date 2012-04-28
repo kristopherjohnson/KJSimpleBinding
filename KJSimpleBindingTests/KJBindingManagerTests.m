@@ -30,7 +30,7 @@
 @property (nonatomic, copy) NSString *stringValue;
 @property (nonatomic, copy) NSString *stringValue2;
 @property (nonatomic) NSInteger numericValue;
-@property (nonatomic, retain) TestModel *submodel;
+@property (nonatomic) TestModel *submodel;
 @end
 
 @implementation TestModel
@@ -40,12 +40,6 @@
 @synthesize numericValue;
 @synthesize submodel;
 
-- (void)dealloc {
-    [stringValue release];
-    [stringValue2 release];
-    [submodel release];
-    [super dealloc];
-}
 
 @end
 
@@ -58,10 +52,6 @@
 
 @synthesize text;
 
-- (void)dealloc {
-    [text release];
-    [super dealloc];
-}
 
 @end
 
@@ -73,15 +63,15 @@
 }
 
 - (void)tearDown {
-    [bindingManager release];
+    [bindingManager disable];
     bindingManager = nil;
 }
 
 - (void)testCopiesValuesOnEnable {
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.stringValue = @"Test Value";
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer keyPath:@"text"
                        toSubject:model    keyPath:@"stringValue"];
@@ -97,10 +87,10 @@
 }
 
 - (void)testCopiesValuesOnChange {
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.stringValue = @"Test Value";
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer keyPath:@"text"
                        toSubject:model    keyPath:@"stringValue"];
@@ -119,10 +109,10 @@
 }
 
 - (void)testDoesNotCopyAfterDeactivate {
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.stringValue = @"Test Value";
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer keyPath:@"text"
                        toSubject:model    keyPath:@"stringValue"];
@@ -149,10 +139,10 @@
 
 - (void)testAddBindingToEnabledBindingManager {
     
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.stringValue = @"Test Value";
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     [bindingManager enable];
     
@@ -168,10 +158,10 @@
 }
 
 - (void)testRemoveBindings {
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.stringValue = @"Test Value";
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer keyPath:@"text"
                        toSubject:model    keyPath:@"stringValue"];
@@ -197,12 +187,12 @@
 }
 
 - (void)testMultipleModelProperties {
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.stringValue = @"String 1";
     model.stringValue2 = @"String 2";
     
-    TestObserver *observer1 = [[[TestObserver alloc] init] autorelease];
-    TestObserver *observer2 = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer1 = [[TestObserver alloc] init];
+    TestObserver *observer2 = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer1 keyPath:@"text"
                        toSubject:model     keyPath:@"stringValue"];
@@ -222,14 +212,14 @@
 }
 
 - (void)testMultipleModels {
-    TestModel *model1 = [[[TestModel alloc] init] autorelease];
+    TestModel *model1 = [[TestModel alloc] init];
     model1.stringValue = @"String 1";
     
-    TestModel *model2 = [[[TestModel alloc] init] autorelease];
+    TestModel *model2 = [[TestModel alloc] init];
     model2.stringValue = @"String 2";
     
-    TestObserver *observer1 = [[[TestObserver alloc] init] autorelease];
-    TestObserver *observer2 = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer1 = [[TestObserver alloc] init];
+    TestObserver *observer2 = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer1 keyPath:@"text"
                        toSubject:model1    keyPath:@"stringValue"];
@@ -249,10 +239,10 @@
 }
 
 - (void)testValueTransform {
-    TestModel *model = [[[TestModel alloc] init] autorelease];
+    TestModel *model = [[TestModel alloc] init];
     model.numericValue = 33;
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     [bindingManager bindObserver:observer keyPath:@"text"
                        toSubject:model keyPath:@"numericValue"
@@ -267,12 +257,12 @@
 }
 
 - (void)testSubjectKeyPath {
-    TestModel *topModel = [[[TestModel alloc] init] autorelease];
-    TestModel *subModel = [[[TestModel alloc] init] autorelease];
+    TestModel *topModel = [[TestModel alloc] init];
+    TestModel *subModel = [[TestModel alloc] init];
     
     topModel.submodel = subModel;
     
-    TestObserver *observer = [[[TestObserver alloc] init] autorelease];
+    TestObserver *observer = [[TestObserver alloc] init];
     
     // Bind to topModel, but use a key path to actually bind to its submodel's stringValue
     [bindingManager bindObserver:observer keyPath:@"text"

@@ -33,9 +33,9 @@ typedef id (^KJTransformBlock)(id value);
 
 @interface KJBinding : NSObject
 
-@property (nonatomic, assign) NSObject *observer;
+@property (nonatomic, retain) NSObject *observer;
 @property (nonatomic, copy) NSString *observerKeyPath;
-@property (nonatomic, assign) NSObject *subject;
+@property (nonatomic, retain) NSObject *subject;
 @property (nonatomic, copy) NSString *subjectKeyPath;
 @property (nonatomic, copy) KJTransformBlock transformBlock;
 
@@ -53,12 +53,6 @@ typedef id (^KJTransformBlock)(id value);
 @synthesize subjectKeyPath = _subjectKeyPath;
 @synthesize transformBlock = _transformBlock;
 
-- (void)dealloc {
-    [_observerKeyPath release];
-    [_subjectKeyPath release];
-    [_transformBlock release];
-    [super dealloc];
-}
 
 - (void)activate {
     [_subject addObserver:self
@@ -101,8 +95,6 @@ typedef id (^KJTransformBlock)(id value);
         // Disconnect all the observers before we release the bindings
         [self disable];
     }
-    [_bindings release];
-    [super dealloc];
 }
 
 - (void)bindObserver:(NSObject *)observer
@@ -137,7 +129,6 @@ typedef id (^KJTransformBlock)(id value);
         [binding activate];
     }
     
-    [binding release];    
 }
 
 - (void)enable {

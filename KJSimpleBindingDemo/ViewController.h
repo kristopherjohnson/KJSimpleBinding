@@ -31,12 +31,12 @@
     Clock *_clock;
 }
 
-@property (retain, nonatomic) IBOutlet UILabel *hoursLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *hoursLabel;
 
-@property (retain, nonatomic) IBOutlet UILabel *minutesLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *minutesLabel;
 
-@property (retain, nonatomic) IBOutlet UILabel *secondsLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *secondsLabel;
 
-@property (retain, nonatomic) IBOutlet UILabel *intervalLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *intervalLabel;
 
 @end

@@ -41,12 +41,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [_hours release];
-    [_minutes release];
-    [_seconds release];
-    [super dealloc];
-}
 
 - (void)tick {
     NSDate *now = [NSDate date];
