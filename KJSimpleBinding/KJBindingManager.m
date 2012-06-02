@@ -71,10 +71,12 @@ typedef id (^KJTransformBlock)(id value);
                        context:(void *)context
 {
     id newValue = [change valueForKey:NSKeyValueChangeNewKey];
-    if (_transformBlock) {
-        newValue = _transformBlock(newValue);
+    if (newValue != [NSNull null]) {
+      if (_transformBlock) {
+            newValue = _transformBlock(newValue);
+      }
+      [_observer setValue:newValue forKeyPath:_observerKeyPath];
     }
-    [_observer setValue:newValue forKeyPath:_observerKeyPath];
 }
 
 @end
