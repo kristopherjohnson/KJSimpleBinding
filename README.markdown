@@ -67,18 +67,13 @@ For example, if the subject exposes a numeric property, then that value will be 
 
 The `master` branch does not support ARC. If you use the `KJBindingManager` class in an ARC project, you will need to add the `-fno-objc-arc` compiler option for `KJBindingManager.m`.
 
-An experimental branch, `arc`, has the code from the `master` branch converted to ARC. It has not been extensively tested, but the ARC version will eventually be moved into `master`, and the `noarc` branch will contain the old code.
+An experimental branch, `arc`, has the code from the `master` branch converted to ARC. It has not been extensively tested.
 
 
 
 ## Future Directions
 
-The following features are planned:
-
-- Validation
-- Subclasses of `UIViewController` and `UITableViewController` with built-in binding functionality (perhaps based upon the functionality of AppKit's `NSObjectController` and `NSArrayController`).
-
-Note that a full Cocoa bindings implementation is not feasible on iOS, due to limitations of UIKit components.  The goal of the `KJSimpleBinding` project is to create a good data-binding mechanism for iOS, so there will be no attempt to be compatible with Cocoa bindings simply for the sake of similarity or familiarity.
+There are no plans for further development of this library.  The author now recommends [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) for doing this kind of stuff.
 
 
 ## License
